@@ -1,2 +1,7 @@
 # djarenas.github.io
-Personal site and documentation hub for my open-source Python packages.
+
+Source for my personal site at https://djarenas.github.io.
+
+Landing page plus links to documentation for my open-source packages:
+- eventus — longitudinal cohort analysis
+- Inter-Rater — inter-rater reliability analysis
