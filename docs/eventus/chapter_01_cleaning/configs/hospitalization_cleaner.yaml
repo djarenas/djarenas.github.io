@@ -1,0 +1,16 @@
+# hospitalization_cleaner.yaml
+# EpisodesCleanerConfig for inpatient hospitalization claims.
+# Used in vignette Chapter 1.
+
+normalize_dates:     true
+coalesce_dates:      false
+causality_check:     reject
+parse_dates:         true
+drop_duplicate_rows: true
+date_floor:          "1920-01-01"
+date_ceiling:        "2030-01-01"
+
+merge:
+  meaningful_gap_days: 1         # discharged Monday, readmitted Tuesday = one episode
+  descriptor_cols:
+    icd10_condition: unique      # collect unique conditions across merged rows
