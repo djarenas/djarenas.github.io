@@ -11,6 +11,7 @@ site_url: https://djarenas.github.io/
 nav:
   - Home: index.md
   - About: about.md
+  - Publications: publications.md
   - eventus:
       - eventus/index.md
       - Cleaning: eventus/chapter_01_cleaning/vignette_01_cleaning.md

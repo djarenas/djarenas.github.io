@@ -1,0 +1,52 @@
+# Publications
+
+39 peer-reviewed publications, newest first. \* Co-first author.
+
+## Peer-reviewed
+
+- **Arenas DJ**, et al. [Clarifying the Association Between Food Insecurity and Chronic Disease: Why Methods Matter](https://doi.org/10.1007/s13668-026-00782-0). Current Nutrition Reports 15.1 (2026): 64
+- Sweeney, Jacob R.\*, **Arenas, Daniel J.**\*, et al. [Virtual biopsies: Proof of concept for a novel quantitative approach to liver biopsy adequacy and pathology education](https://doi.org/10.1093/ajcp/aqad104). American Journal of Clinical Pathology (2023): aqad104.
+- **Arenas, D. J.** et al. [A low appendiceal mucinous neoplasm lesion in an inflamed appendix within an inguinal hernia](https://doi.org/10.1093/jscr/rjab489). Journal of Surgical Case Reports, 2022(6), rjab489.
+- **Arenas, Daniel J.**, et al. [A Systematic Review and Meta-Analysis of Food Insecurity and Dyslipidemia](https://www.jabfm.org/content/35/4/656.abstract), The Journal of the American Board of Family Medicine 35.4 (2022): 656-667.
+- Pierson, Sheila K., et al. [Discovery and validation of a novel subgroup and therapeutic target in idiopathic multicentric Castleman disease](https://ashpublications.org/bloodadvances/article/5/17/3445/476695/Discovery-and-validation-of-a-novel-subgroup-and), Blood advances 5.17 (2021): 3445-3456.
+- Beltrán, Sourik, et al. [Associations of race, insurance, and zip code-level income with nonadherence diagnoses in primary and specialty diabetes care](https://www.jabfm.org/content/34/5/891.abstract), The Journal of the American Board of Family Medicine 34.5 (2021): 891-897.
+- **Arenas, Daniel J.**, et al. [Cocaine, cardiomyopathy, and heart failure: a systematic review and meta-analysis](https://www.nature.com/articles/s41598-020-76273-1), Scientific reports 10.1 (2020): 1-8.
+- Beltrán, Sourik, et al. [Food insecurity and hypertension: A systematic review and meta-analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0241628), PloS one 15.11 (2020): e0241628.
+- Pai, Ruth-Anne Langan, et al. [Type I IFN response associated with mTOR activation in the TAFRO subtype of idiopathic multicentric Castleman disease](https://insight.jci.org/articles/view/135031), JCI insight 5.9 (2020).
+- **Arenas, Daniel J.**, et al., [Increased mTOR activation in idiopathic multicentric Castleman disease](https://ashpublications.org/blood/article/135/19/1673/452765/Increased-mTOR-activation-in-idiopathic), Blood 135.19 (2020): 1673-1684.
+- **Arenas, Daniel J.**, et al., [A systematic review and meta-analysis of depression, anxiety, and sleep disorders in US adults with food insecurity](https://link.springer.com/article/10.1007/s11606-019-05202-4), Journal of general internal medicine 34.12 (2019): 2874-2882.
+- Fajgenbaum, David C., et al., [Identifying and targeting pathogenic PI3K/AKT/mTOR signaling in IL-6 blockade-refractory idiopathic multicentric Castleman disease](https://www.jci.org/articles/view/126091), The Journal of clinical investigation 129.10 (2019): 4451-4463.
+- **Arenas, Daniel Jose**, et al., [Systematic review of patient-centered needs assessments performed by free health clinics](https://journalsrc.org/index.php/jsrc/article/view/79), Journal of Student-Run Clinics 5.1 (2019).
+- **Arenas, Daniel J.**, et al., [A Monte Carlo simulation approach for estimating the health and economic impact of interventions provided at a student-run clinic](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0189718), PloS one 12.12 (2017): e0189718.
+- Burger, Virginia M., **Daniel J. Arenas**, and Collin M. Stultz, [A structure-free method for quantifying conformational flexibility in proteins](https://www.nature.com/articles/srep29040), Scientific reports 6.1 (2016): 1-9.
+- Shim, Dongha, et al., [THz power generation beyond transistor fmax](https://www.sciencedirect.com/science/article/pii/B9780124080522000177), RF and mm-Wave Power Generation in Silicon. Academic Press, 2016. 461-484.
+- **Arenas, D. J.**, Carl Middleton, and A. F. Kemper, [First-principles study of the phonon modes in bismuth sillenites](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.91.144103), Physical Review B 91.14 (2015): 144103.
+- Hasegawa, Takayuki, **Daniel J. Arenas**, and Hideo Kohno, [Optimizing growth conditions for coaxial multi-walled carbon nanotubes](https://www.tandfonline.com/doi/abs/10.1080/1536383X.2014.967847), Fullerenes, Nanotubes and Carbon Nanostructures 23.8 (2015): 687-690.
+- Hasegawa, Takayuki, **Daniel Arenas**, and Hideo Kohno, [Multi-Walled Carbon Nanotube Growth in Multi-Walled Carbon Nanotubes by Chemical Vapor Deposition](https://www.ingentaconnect.com/contentone/asp/jnn/2015/00000015/00000002/art00138), Journal of nanoscience and nanotechnology 15.2 (2015): 1801-1804.
+- Scurti, Craig A., et al., [Electron diffraction study of the sillenites Bi12SiO20, Bi25FeO39 and Bi25InO39: Evidence of short-range ordering of oxygen-vacancies in the trivalent sillenites](https://aip.scitation.org/doi/full/10.1063/1.4893341), AIP Advances 4.8 (2014): 087125.
+- Kim, Cheolbok, et al., [Micromachined air-lifted pillar arrays for terahertz devices](https://ieeexplore.ieee.org/abstract/document/6734686), IEEE Electron Device Letters 35.4 (2014): 470-472.
+- Bright, Trevor J., et al., [Infrared optical properties of amorphous and nanocrystalline Ta2O5 thin films](https://aip.scitation.org/doi/abs/10.1063/1.4819325), Journal of Applied Physics 114.8 (2013): 083515.
+- LaVeigne, Joe, et al., [An extended area blackbody for radiometric calibration](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/8706/870609/An-extended-area-blackbody-for-radiometric-calibration/10.1117/12.2016251.short?SSO=1), Infrared Imaging Systems: Design, Analysis, Modeling, and Testing XXIV. Vol. 8706. International Society for Optics and Photonics, 2013.
+- **Arenas, D. J.**, et al., [Raman spectroscopy evidence of inhomogeneous disorder in the bismuth-oxygen framework of Bi25InO39 and other sillenites](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.86.144116), Physical Review B 86.14 (2012): 144116.
+- Shim, Dongha, et al., [Components for generating and phase locking 390-GHz signal in 45-nm CMOS](https://ieeexplore.ieee.org/abstract/document/6243764), 2012 Symposium on VLSI Circuits (VLSIC). IEEE, 2012.
+- Dhakal, Tara, et al., [Transmittance from visible to mid infra-red in AZO films grown by atomic layer deposition system](https://doi.org/10.1016/j.solener.2012.01.022), Solar Energy 86.5 (2012): 1306-1312.
+- Shim, Dongha, et al., [553-GHz signal generation in CMOS using a quadruple-push oscillator](https://ieeexplore.ieee.org/abstract/document/5986083), 2011 Symposium on VLSI Circuits-Digest of Technical Papers. IEEE, 2011.
+- **Arenas, D. J.**, et al., [Characterization of near-terahertz complementary metal-oxide semiconductor circuits using a Fourier-transform interferometer](https://aip.scitation.org/doi/abs/10.1063/1.3647223), Review of Scientific Instruments 82.10 (2011): 103106.
+- **Arenas, D. J.**, et al., [Raman study of phonon modes in bismuth pyrochlores](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.82.214302), Physical Review B 82.21 (2010): 214302.
+- Miller, K. H., et al., [Magnetodielectric coupling of infrared phonons in single-crystal Cu2OSeO3](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.82.144107), Physical Review B 82.14 (2010): 144107.
+- Seok, Eunyoung, et al., [Generation of Second and Fourth Harmonic Signals Using a Balanced Colpitts Oscillator With a Patch Antenna](https://ieeexplore.ieee.org/abstract/document/5559335), IEEE microwave and wireless components letters 20.10 (2010): 554-556.
+- Avvaru, Balendu Sankara, et al., [Comparison of solution and crystal properties of Co (II)-substituted human carbonic anhydrase II](https://doi.org/10.1016/j.abb.2010.07.010), Archives of biochemistry and biophysics 502.1 (2010): 53-59.
+- Sankaran, Swaminathan, et al., [Towards terahertz operation of CMOS](https://ieeexplore.ieee.org/abstract/document/4977378), 2009 IEEE International Solid-State Circuits Conference-Digest of Technical Papers. IEEE, 2009.
+- Mei, Jianguo, et al., [Low-band-gap platinum acetylide polymers as active materials for organic solar cells](https://pubs.acs.org/doi/abs/10.1021/am800104k), ACS applied materials & interfaces 1.1 (2009): 150-161.
+- Seok, Eunyoung, et al., [A 410GHz CMOS push-push oscillator with an on-chip patch antenna](https://ieeexplore.ieee.org/abstract/document/4523262), 2008 IEEE International Solid-State Circuits Conference-Digest of Technical Papers. IEEE, 2008.
+- Rajab, Khalid Z., et al., [Broadband dielectric characterization of aluminum oxide (Al2O3)](https://doi.org/10.4071/1551-4897-5.1.1), Journal of Microelectronics and Electronic Packaging 5.1 (2008): 2-7.
+- Gasparov, L. V., et al., [Magnetite: Raman study of the high-pressure and low-temperature effects](https://aip.scitation.org/doi/abs/10.1063/1.1854476), Journal of applied physics 97.10 (2005): 10A922.
+- Pekarek, T. M., et al., [Magnetic and transport measurements on the layered III-VI diluted magnetic semiconductor In1−xMnxSe](https://aip.scitation.org/doi/abs/10.1063/1.1851408), Journal of applied physics 97.10 (2005): 10M106.
+- Pekarek, T. M., et al., [Magnetic measurements on ferromagnetic behavior in the bulk II-VI diluted magnetic semiconductor Zn1−xCrxTe](https://aip.scitation.org/doi/abs/10.1063/1.1689431), Journal of applied physics 95.11 (2004): 7178-7180.
+
+## Preprints and other
+
+- **Arenas, Daniel Jose**, et al., [Community Needs Assessments in a Student-Run Clinic serving a West Philadelphia Neighborhood](https://www.medrxiv.org/content/10.1101/2020.04.15.20066563v1), medRxiv (2020).
+- **Arenas, Daniel Jose**, et al., [Negative health outcomes associated with food insecurity status in the United States of America: a systematic review of peer-reviewed studies](https://osf.io/preprints/nutrixiv/uk9xw/), (2018).
+- **Arenas, Daniel J.**, [Inter-Rater: Software for analysis of inter-rater reliability by permutating pairs of multiple users](https://arxiv.org/abs/1809.05731), arXiv preprint arXiv:1809.05731 (2018).
+- Kenneth, K. O., et al., [Progress toward a single chip radio in CMOS](https://ieeexplore.ieee.org/abstract/document/4695913), 2008 IEEE Dallas Circuits and Systems Workshop: System-on-Chip Design, Applications, Integration, and Software. IEEE, 2008.

@@ -7,3 +7,10 @@ For the past three years that has meant New Jersey Medicaid claims and multi-hos
 I trained as a physician and hold a PhD in physics. My contribution to medicine has been mostly through research and data work, but the MD is why I read diagnosis and encounter data with some sense of how it gets generated, and why a measure might move for reasons that have nothing to do with the patients. 39 peer-reviewed publications, 13 as first author. Peer reviewer for eight journals in medicine and physics.
 
 What ties the rest of it together is that I like figuring things out, and I will take on a problem nobody else wants to touch. I learned data engineering because the Camden Coalition needed pipelines and there was no one else to build them. I learned electron diffraction and C++ because a question about local order and disorder in a crystal would not answer itself any other way. I wrote Eventus (github.com/djarenas/eventus), an open-source Python framework for reproducible longitudinal cohort analysis, after noticing how rarely object-oriented design gets used in data pipelines where cleaning and reproducibility actually matter — every cleaning decision is declared in a versioned config file, and every cleaner returns the rows it rejected and why.
+
+## Education
+
+- **MD**, University of Pennsylvania, 2022
+- **PhD, Physics**, University of Florida, 2009
+  Dissertation: *Devices and materials for THz spectroscopy: GHz CMOS circuits, periodic hole-arrays and high-frequency dielectric materials* (advisor: David B. Tanner)
+- **BS, Physics**, University of North Florida, 2004
