@@ -18,8 +18,7 @@ jobs:
         with:
           python-version: "3.x"
       - run: pip install "mkdocs-material==9.*"
-      - run: mkdocs build -d _site/docs
-      - run: cp index.html style.css _site/
+      - run: mkdocs build -d _site
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
