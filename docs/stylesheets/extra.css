@@ -12,10 +12,10 @@
 /* Main background */
 .md-main {
   background: 
-    linear-gradient(135deg,  #2f5f8a 2%, #9ce5ec  5%, rgba(236, 242, 247, 0.6) 15%, transparent 50%),
-    linear-gradient(315deg,  #2f5f8a 2%, #9ce5ec  5%, rgba(236, 242, 247, 0.6) 15%, transparent 50%),
-    linear-gradient(45deg,  #2f5f8a 5%, #9cc4ec  10%, rgba(236, 242, 247, 0.6) 35%, transparent 50%),
-    linear-gradient(225deg,  #2f5f8a 5%, #9cc4ec  10%, rgba(236, 242, 247, 0.6) 35%, transparent 50%),
+    linear-gradient(135deg,  #2f5f8a 1%, #9ce5ec  3%, rgba(236, 242, 247, 0.6) 10%, transparent 50%),
+    linear-gradient(315deg,  #2f5f8a 1%, #9ce5ec  3%, rgba(236, 242, 247, 0.6) 10%, transparent 50%),
+    linear-gradient(45deg,  #2f5f8a 2%, #9cc4ec  6%, rgba(236, 242, 247, 0.6) 20%, transparent 50%),
+    linear-gradient(225deg,  #2f5f8a 2%, #9cc4ec  6%, rgba(236, 242, 247, 0.6) 20%, transparent 50%),
   #eef1f4;
   background-attachment: fixed;
 }
