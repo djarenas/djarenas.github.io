@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+# Daniel J. Arenas, PhD MD
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Physicist and healthcare data scientist. [About me](about.md).
 
-## Commands
+Open-source Python packages:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [eventus](https://github.com/djarenas/eventus) — longitudinal cohort analysis
+- [Inter-Rater](https://github.com/djarenas/inter-rater) — inter-rater reliability analysis

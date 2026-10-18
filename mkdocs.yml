@@ -1,10 +1,18 @@
-site_name: Daniel Arenas
+site_name: Daniel J. Arenas, PhD MD
+extra_css:
+  - stylesheets/extra.css
 theme:
   name: material
-site_url: https://djarenas.github.io/docs/
+  features:
+    # Added so I can have a landing page for eventus before the vignette subpages
+    # Navigation info added in nav section below
+    - navigation.indexes
+site_url: https://djarenas.github.io/
 nav:
   - Home: index.md
+  - About: about.md
   - eventus:
+      - eventus/index.md
       - Cleaning: eventus/chapter_01_cleaning/vignette_01_cleaning.md
       - Descriptor aggregation: eventus/chapter_02_descriptor_aggregation/vignette_02_descriptor_aggregation.md
       - Stay duration: eventus/chapter_03_duration/vignette_03_stay_duration.md

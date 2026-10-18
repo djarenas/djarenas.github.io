@@ -1,0 +1,368 @@
+# eventus
+
+**`eventus`** is an object-oriented Python framework for longitudinal
+cohort analysis of entities that experience episodes and events within
+defined observation periods. Temporal data can be messy and hard to 
+clean in reproducible and easily-auditable pipelines. This package's 
+purpose is to address those problems by turning temporal data (such as 
+hospitalization records, administrative claims, and the like) into validated, typed objects
+that can be carried through analysis pipelines. Cleaners and analyzers are
+fully reproducible and auditable: every cleaning and analytical decision is
+declared in a versioned configuration file rather than buried in a script.
+Beyond cleaning, `eventus` defines an algebra for combining event, episode,
+and observation-period objects. It also has specific design rules in the intermediate objects
+on how they compose and how they can be consumed by other classes. And because results are themselves typed objects, downstream work like plotting draws on validated data without re-checking it.
+
+## Core concepts
+
+Three kinds of object sit at the center of `eventus`. The distinction
+between them is what the whole framework is built on:
+
+- **Event** — something that happens at a *point in time*: an emergency
+  department visit, a diagnosis, a vaccination. One date.
+- **Episode** — something that occupies an *interval of time*, with a start
+  and an end: a hospital stay, a span of insurance coverage, a nursing-facility
+  stay.
+- **Observation period** — the *window during which an entity is observed*.
+  It is the denominator: it defines when a person was eligible to have events
+  or episodes recorded at all (e.g. the 2022 calendar year, or the window
+  between someone's 18th and 21st birthdays).
+
+An **entity** is whoever (or whatever) these belong to: a patient, a member,
+a device.
+
+### What makes up an event (or episode)
+
+The package asks you to declare, up front, what your data *means*. You give
+the stream a single **identity**; for example, a label naming what kind of thing it is,
+such as `ed_visit`. This is not a column in your data; it is a name you
+assign to the stream as a whole.
+
+You then map the columns that already exist in your data to the roles they
+play. Take an ED visit table with columns `patient_id`, `ed_visit_date`,
+`hospital_id`, `icd10_condition`, and `systolic_bp`:
+
+- The **entity** column says who each record is about — here, `patient_id`.
+- The **date** column says when it happened — here, `ed_visit_date`.
+- **Defining** columns say what else distinguishes one occurrence from
+  another. Declaring `hospital_id` as defining means two visits on the same
+  day at *different* hospitals are two distinct events, not a duplicate.
+- **Descriptor** columns carry extra information that describes an event
+  without defining it — here, `icd10_condition` and `systolic_bp`. They are
+  carried along and can be aggregated, but they are never used to tell one
+  event from another.
+
+An **episode** is declared the same way, except it maps a *start* and an
+*end* column (e.g. `admit_date` and `discharge_date`) instead of a single
+date — because it spans an interval rather than marking a point.
+
+Declaring "defines" versus "describes" explicitly is what lets `eventus`
+clean and combine these objects safely: it knows that two records differing
+only in a descriptor are the same occurrence, while two records differing in
+a defining column are genuinely distinct. For example, two records having 
+a different ICD10 diagnosis (a descriptor); vs two records differing in start dates (defining).
+
+### Is this package a good fit for you?
+
+`eventus` is likely a good fit if you need auditable, reproducible
+longitudinal analysis — especially across many datasets, or across many
+reasonable analytical variations of the same study (sensitivity and
+multiverse analyses). These are types of analyses where every cleaning, analytical, and visual
+decision should be declared and versioned. For a single quick exploratory
+pass on one clean dataset, a direct `pandas` script may serve you better;
+`eventus` trades a little upfront investment for guarantees, audit trails,
+and reproducibility that pay off at scale. 
+
+From personal experience, this 
+package could also be good for you if you do analysis that may have 
+to be revisited years later. Instead of saving all your scripts and little tweaks
+that you ran at different times, you can save the eventus version and the config files (which are easier for you and your non-technical collaborators to read).
+
+I make no claim that everyone should work this way. I just hope to show that an
+object-oriented approach can earn its keep for some data scientists.
+
+### Not limited to claims or hospitalization data
+
+`eventus` is not meant to be health-specific. The examples here use claims and hospital data, but the same objects handle any entity with events and episodes over time. The two main contributors
+are a trained physicist and an engineer; although hospitalization data was the original motivator
+to do this package, it was written with other engineering applications in mind.
+
+---
+
+## Status
+
+**eventus is v0.1 (alpha) and in active development.** It installs, runs, and
+the ten vignettes reproduce their published results — but the API is still
+stabilizing and may change between 0.x releases. It is ready to use and to
+build on; it is not yet frozen.
+
+The design is stable: validated typed objects, the layered pipeline, composable
+algebra over episodes and events, etc. Currently staged for upcoming
+releases:
+
+- Bootstrap confidence intervals for co-occurrence measures (analytical CIs available now)
+- Episode–episode interaction analyzers, completing the pairwise algebra
+- Sequential-dependency analysis (Markov-chain characterization of event ordering)
+- Descriptor-based filtering and interactive visualization
+
+Issues, use cases, and contributions are super welcome.
+
+---
+
+## Installation
+
+### From PyPI (when released)
+
+```bash
+pip install eventus
+```
+
+### From source
+
+Install the latest development version from GitHub:
+
+```bash
+pip install git+https://github.com/djarenas/eventus.git
+```
+
+### For development
+
+If you want to develop locally:
+
+```bash
+git clone https://github.com/djarenas/eventus.git
+cd eventus
+pip install -e ".[dev]"
+```
+
+Run tests to verify installation:
+
+```bash
+pytest -v
+```
+
+---
+
+## Example pipeline
+
+`eventus` is not a fixed pipeline. Its components are typed objects that compose as your analysis needs; the flow below is *one* common arrangement, not a required sequence. Most analyses use only the pieces they need.
+
+**Example 1 — episode duration, stratified by a descriptor.**
+A single-object analysis: clean one stream, then analyze it directly. No
+`CohortTimeline` needed.
+
+```
+EpisodeSemantics.build_from_yaml(...)          declare columns + identity
+        ↓
+EpisodesCleaner(df, semantics, config).clean()  →  Episodes   (validated, audited)
+        ↓
+EpisodeDurationAnalyzer(episodes,
+        descriptor_cols=["facility_id"]).calc()  →  EpisodeDurationResult
+        ↓
+Config + Plotter                                 →  duration distribution by facility
+```
+
+**Example 2 — temporal gap timing between two event types.**
+A multi-object analysis: clean two event streams independently, align them
+to an observation period inside a `CohortTimeline`, then test their gap
+timing against a permutation null.
+
+```
+EventSemantics + EventsCleaner(...).clean()      →  Events A   (e.g. diagnoses)
+EventSemantics + EventsCleaner(...).clean()      →  Events B   (e.g. ED visits)
+        ↓  EventsFilter(...).to_obs_period(obs).result   (clip both to the period)
+        ↓
+CohortTimeline.build_from_components(
+        obs_period=obs, events=[A, B])           →  aligned, validated streams
+        ↓
+EventCoOccurrenceAnalyzer(ct, "A", "B")
+        .compute_gaps()                          →  EventCoOccurrenceGapSummary
+        ↓
+EventCoOccurrenceGapAnalyzer(summary)
+        .compute_test(n_permutations=500)        →  gap timing vs permutation null
+        ↓
+Config + Plotter                                 →  observed vs null gap distributions
+```
+
+The two flows share their early steps — declare, clean, validate — then
+diverge. You assemble only the pieces an analysis needs.
+
+### Combining objects
+
+Once episodes, events, and an observation period are assembled into a
+`CohortTimeline`, they can be analyzed *together*. The `CohortTimeline`
+holds the validated, time-aligned objects and enforces the rules that let
+them compose — so these pairwise analyses run without re-validating their
+inputs:
+
+| Combination | Analyzer | Produces |
+|---|---|---|
+| Episode × Observation period | `CohortTimelineEpisodeAnalyzer` | Coverage: active/inactive days, gaps, activity over time |
+| Event × Observation period | `CohortTimelineEventAnalyzer` | Volume, timing, and shape relative to the period |
+| Event × Episode | `EpisodeEventInteractionAnalyzer` | Events classified by position: before / during / in gaps / after episodes |
+| Event × Event | `EventCoOccurrenceAnalyzer` | Presence, gap timing, and directionality between two event types |
+| Episode × Episode | *(planned for a future release)* | — |
+
+This small algebra of validated combinations — rather than any single
+analyzer — is what the `CohortTimeline` is for.
+
+---
+
+## Quick start
+
+### Episode coverage
+
+```python
+import eventus
+
+# 1. Declare semantics
+sem = eventus.EpisodeSemantics(
+    identity        = "insurance_coverage",
+    entity_id_col   = "person_id",
+    start_time_col  = "enrollment_start",
+    end_time_col    = "enrollment_end",
+    descriptor_cols = {
+        "plan_type": eventus.DescriptorColConfig(type="category"),
+    },
+)
+
+# 2. Clean raw data with a declared config
+#    (the cleaner takes the raw DataFrame + semantics; it returns a
+#     validated Episodes object)
+config  = eventus.EpisodesCleanerConfig.build_from_yaml("cleaning.yaml")
+cleaner = eventus.EpisodesCleaner(df, sem, config)
+cleaned = cleaner.clean()         # -> validated Episodes object
+
+cleaner.print_report()            # human-readable audit of every decision
+report   = cleaner.calc_report()  # same audit as a structured dict
+rejected = cleaner.rejected       # DataFrame of every rejected row + reason
+modified = cleaner.modified       # DataFrame of every repaired row
+
+# 3. Build a CohortTimeline
+ct = eventus.CohortTimeline.build_from_components(
+    obs_period = obs,
+    episodes   = cleaned,
+)
+
+# 5. Analyze coverage
+analyzer = eventus.CohortTimelineEpisodeAnalyzer(ct, "insurance_coverage")
+ct       = analyzer.enrich_with_episode_coverage()
+summary  = analyzer.get_summary()
+
+# 6. Plot
+config  = eventus.StackedTimelineConfig.build_from_yaml("timeline.yaml")
+plotter = eventus.StackedTimelinePlotter(ct, config)
+plotter.plot("timeline.png")
+```
+
+### Event co-occurrence
+
+```python
+# Do cirrhosis diagnoses and ED visits co-occur more than chance predicts?
+# Does one tend to precede the other?
+
+analyzer = eventus.EventCoOccurrenceAnalyzer(
+    cohort_timeline = ct,
+    identity_a      = "cirrhosis_diagnosis",
+    identity_b      = "ed_visit",
+)
+
+# Chapter 8 — presence
+presence = analyzer.compute_presence()
+print(presence)
+# prevalence_ratio=1.71  fisher_p=1.3e-06
+
+# Chapter 9 — gap timing
+gaps     = analyzer.compute_gaps()
+gap_test = eventus.EventCoOccurrenceGapAnalyzer(gaps).compute_test(n_permutations=500)
+print(gap_test)
+# gap_ratio: 0.37 (A→B), 0.47 (B→A)  ks_p≈1.8e-05  (gaps shorter than independence predicts)
+
+# Chapter 10 — directionality
+directionality = analyzer.compute_directionality()
+dir_test       = eventus.EventCoOccurrenceDirectionalityAnalyzer(directionality).compute_test()
+print(dir_test)
+# fraction_a_first=74.5%  direction_ratio=1.50  wilcoxon_p=0.049
+```
+
+---
+
+## Modules
+
+| Module | Responsibility |
+|---|---|
+| `eventus.semantics` | `EpisodeSemantics`, `EventSemantics`, `DescriptorColConfig` |
+| `eventus.data_objects` | `Episodes`, `Events`, `ObsPeriodPerEntity` and per-entity variants |
+| `eventus.cleaners` | `EpisodesCleaner`, `EventsCleaner`, filter classes, cleaner configs |
+| `eventus.intermediates` | All typed result objects — `CohortTimeline`, `EventResultVolume`, `EventCoOccurrencePresenceResult`, `EventCoOccurrenceGapSummary`, `EventCoOccurrenceGapTest`, `EventCoOccurrenceDirectionalitySummary`, `EventCoOccurrenceDirectionalityTest`, etc. |
+| `eventus.analyzers` | First-level analyzers (`CohortTimelineEpisodeAnalyzer`, `CohortTimelineEventAnalyzer`, `EventCoOccurrenceAnalyzer`) and second-level statistical analyzers (`EventCoOccurrenceGapAnalyzer`, `EventCoOccurrenceDirectionalityAnalyzer`) |
+| `eventus.visualizers` | All plotters and their configs — episode, event, and co-occurrence |
+| `eventus.types` | `DateBoundary`, `EpisodeCoverageMetric` |
+
+---
+
+## What eventus computes
+
+### Episode analysis
+- Coverage: active days, inactive days, before/middle/after gaps
+- Activity over time: fraction of cohort active at each timepoint, entries and exits
+- Duration distributions: histogram, KDE, violin by stratum
+
+### Event analysis
+- Volume: prevalence, count distribution
+- Timing: time to nth event, recency
+- Shape: mean gap, burstiness, memory, density, center of mass
+
+### Event co-occurrence (chapters 8–10)
+- **Presence** — do two event types co-occur in the same observation period above chance? Prevalence ratio, Fisher's exact test, full 2×2 association table
+- **Gap timing** — are events closer in time than independence predicts? Per-entity nearest-neighbor gaps, permutation null, KS test, gap ratio
+- **Directionality** — does one event tend to precede the other? Per-entity mean signed gaps, permutation null, Wilcoxon signed-rank test, direction ratio
+
+### Event–episode relationships
+- Position classification: each event labeled by where it falls relative to an entity's episodes — before the first, during an active episode, in a gap between episodes, or after the last
+- Per-position counts and proportions per entity
+
+---
+
+## Design principles
+
+These are the architectural choices `eventus` makes. They are what the
+framework is built around.
+
+**Semantics first.** Every column is given a declared role before any
+computation begins. The semantics object acts as the contract between
+your data schema and the framework.
+
+**Validation at construction.** `eventus` objects validate themselves
+when built, so a constructed object can be trusted by everything
+downstream. Errors surface immediately, with messages that show the
+correct structure rather than just rejecting the wrong one.
+
+**Nothing happens silently.** Cleaners report what they did. NaN values in
+results carry meaning — absent signal, not missing data — and every
+transformation is recorded in an audit trail you can read.
+
+**Typed results over enriched DataFrames.** Analytical results are
+first-class objects with documented columns, properties, and a meaningful
+`__repr__`. The column-naming problem
+(`evt_ed_visit_n_co_occurrences_within_7_specialist_referral`) goes away
+when results carry their own context.
+
+**Declarative construction through configs.** Every analytical and visual decision
+can live in a validated, round-trippable YAML file. Hand someone a config
+file and they can reproduce a result exactly.
+
+**One concept per class.** Each class is designed to represent exactly one
+real concept, rather than absorbing a neighboring concern for convenience.
+This keeps each class aligned with the single-responsibility principle, which
+makes changes easier to reason about.
+
+---
+
+## Citation
+
+If you use `eventus` in your research, please cite:
+
+> Arenas, D., & Fincato, R. (2026). *eventus: Object-Oriented Longitudinal
+> Cohort Analysis with Episodes, Events, and Observation Periods.*
+> arXiv preprint. [arXiv link forthcoming]
