@@ -11,6 +11,14 @@ markdown_extensions:
       check_paths: true
 
 site_url: https://djarenas.github.io/
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/djarenas
+      name: Daniel Arenas on GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/djarenas
+      name: Daniel Arenas on LinkedIn
 nav:
   - Home: index.md
   - About: about.md
