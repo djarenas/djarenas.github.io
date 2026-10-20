@@ -20,8 +20,10 @@ What ties the rest of it together is that I like figuring things out, and I will
 
 Away from the keyboard: Wingspan, Catan, and Libby (the library app, not a dog).
 
-I keep five Philadelphia museum memberships: the Art Museum, the Barnes, the
-Franklin Institute, the National Constitution Center, and the dearly departed
-Academy of Natural Sciences. A good deal of eventus, interrater, and more than
-one of my papers were written in their cafeterias. Strongly recommend all of
-them, jawn.
+I keep five Philadelphia museum memberships: the
+[Philadelphia Museum of Art](https://philamuseum.org/), the
+[Barnes Foundation](https://www.barnesfoundation.org/), the
+[Franklin Institute](https://fi.edu/), the
+[National Constitution Center](https://constitutioncenter.org/), and the dearly departed
+[Academy of Natural Sciences](https://ansp.org/). A good deal of eventus, interrater, and more than
+one of my papers were written in their cafeterias. Jawn!
