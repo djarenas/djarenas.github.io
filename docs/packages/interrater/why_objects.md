@@ -1,0 +1,1 @@
+--8<-- "https://raw.githubusercontent.com/djarenas/Inter-Rater/master/guide/why_objects.md"
