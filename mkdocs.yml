@@ -38,9 +38,9 @@ nav:
         - Directionality: packages/eventus/chapter_10_directionality/vignette_10_directionality.md
     - interrater:
         - Overview: packages/interrater/interrater.md
-        - Why pairwise?: packages/interrater/why_pairwise.md
-        - Why objects?: packages/interrater/why_objects.md
         - Statistical background: packages/interrater/statistical_background.md
+        - Why objects?: packages/interrater/why_objects.md
+        - Why pairwise?: packages/interrater/why_pairwise.md
         - Rater substitution: packages/interrater/rater_substitution.md
         - Roadmap: packages/interrater/roadmap.md
   - Publications: publications.md
